@@ -163,8 +163,12 @@ function dailyForecast() {
       colIcon.css("width","5rem");
 
       var colCondition = $("<div>").addClass("col-6 fw-bold text-white").text(myForecast.forecastday[i].day.condition.text);
-      var colTemperature = $("<div>").addClass("col-2 fw-bold").text(Math.round(myForecast.forecastday[i].day.maxtemp_c)+"/"+Math.round(myForecast.forecastday[i].day.mintemp_c));
-
+      var colTemperature = $("<div>").addClass("col-2 fw-bold");
+      var $maxtemp_c=$("<span>").text(Math.round(myForecast.forecastday[i].day.maxtemp_c)).addClass("text-white");
+      var $mintemp_c=$("<span>").text(Math.round(myForecast.forecastday[i].day.mintemp_c));
+      colTemperature.append($maxtemp_c)
+      .append("/")
+      .append($mintemp_c);
 
       row.append(colDate, colIcon, colCondition, colTemperature);
 
