@@ -21,7 +21,7 @@ window.addEventListener("load", (event) => {
 });
 
 function loadDoc() {
-  let cityName = document.getElementById("place").value? "Hanoi":"Hanoi";
+  let cityName = document.getElementById("place").value;
 
   const xhttp = new XMLHttpRequest();
 
