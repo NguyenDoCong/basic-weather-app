@@ -119,12 +119,11 @@ function dailyForecast() {
     let tableContainer = $("<div>").addClass("container ");
 
     for (let i = 0; i < 7; i++) {
-
+      let row
       if (i !== 6) {
-        var row = $("<div>").addClass("row align-items-center pt-1 pb-1 border-bottom border-light border-opacity-10");
-
+        row = $("<div>").addClass("row align-items-center pt-1 pb-1 border-bottom border-light border-opacity-10");
       }
-      else var row = $("<div>").addClass("row align-items-center pt-1 pb-2");
+      else row = $("<div>").addClass("row align-items-center pt-1 pb-2");
 
       let rawDate = myForecast.forecastday[i].date;
       let dayOfWeek = formatDayOfWeek(rawDate);
@@ -174,13 +173,14 @@ function hourlyForecast() {
     let myForecast = jsonResponse.forecast;
 
     let row = $("<div>").addClass("row");
+    let col;
 
     for (let i = 0; i < 5; i++) {
       if (i !== 4) {
-        var col = $("<div>").addClass("col border-end border-light border-opacity-10");
+        col = $("<div>").addClass("col border-end border-light border-opacity-10");
 
       }
-      else var col = $("<div>").addClass("col");
+      else col = $("<div>").addClass("col");
 
       let thisTime = myForecast.forecastday[0].hour[i].time;
       let dateObj = new Date(thisTime);
